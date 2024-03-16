@@ -14,6 +14,7 @@ class VeriEkleController extends Controller
 
         if($request->get("filmara")){
             $film =  $film->where("kategori",$request->get("filmara"));
+            $product = $film->where("film_adi", "like", "%" .request()->get("filmara"). "%");
         }
 
         $film = $film->paginate(10);
